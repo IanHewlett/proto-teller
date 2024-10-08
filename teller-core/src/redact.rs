@@ -28,7 +28,7 @@ impl Redactor {
         for line in reader.lines().map_while(Result::ok) {
             let redacted = self.redact_string(line.as_str(), kvs);
             writer.write_all(redacted.as_bytes())?;
-            writer.write_all(`b"\n"`)?; // TODO: support crlf for windows
+            writer.write_all(b"\n")?; // TODO: support crlf for windows
             writer.flush()?;
         }
         Ok(())
