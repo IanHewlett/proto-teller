@@ -3,5 +3,5 @@
 pre-build = [
     "dpkg --add-architecture $CROSS_DEB_ARCH",
     "apt-get update",
-    "apt-get update && apt-get --assume-yes install pkg-config:$CROSS_DEB_ARCH protobuf-compiler:$CROSS_DEB_ARCH libssl-dev:$CROSS_DEB_ARCH"
+    "apt-get update && apt-get --assume-yes install libssl-dev:$CROSS_DEB_ARCH"
 ]
