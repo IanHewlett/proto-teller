@@ -118,9 +118,9 @@ jobs:
           target: ${{ matrix.target }}
           override: true
 
-#      - name: Install OpenSSL
-#        if: matrix.build == 'aarch64-linux'
-#        run: sudo apt-get install build-essential pkg-config openssl libssl-dev protobuf-compiler
+      - name: Install OpenSSL
+        if: matrix.build == 'aarch64-linux'
+        run: sudo apt-get install pkg-config openssl openssl-dev
 
       - name: Build release binary
         uses: actions-rs/cargo@v1
