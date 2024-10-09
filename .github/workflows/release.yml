@@ -17,6 +17,7 @@ env:
   BIN_NAME: teller
   PROJECT_NAME: teller
   REPO_NAME: tellerops/teller
+  RUST_BACKTRACE: 1
 
 jobs:
   dist:
@@ -96,6 +97,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           use-cross: ${{ matrix.cross }}
+          toolchain: ${{ matrix.rust }}
           command: build
           args: --release --locked --target ${{ matrix.target }}
 
