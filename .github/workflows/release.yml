@@ -107,8 +107,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Protoc
-        uses: arduino/setup-protoc@v3
+#      - name: Install Protoc
+#        uses: arduino/setup-protoc@v3
 
       - name: Install ${{ matrix.rust }} toolchain
         uses: actions-rs/toolchain@v1
