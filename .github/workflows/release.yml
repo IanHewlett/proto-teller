@@ -120,7 +120,7 @@ jobs:
 
       - name: Install OpenSSL
         if: matrix.build == 'aarch64-linux'
-        run: sudo apt-get install pkg-config libssl-dev protobuf-compiler
+        run: sudo apt-get install build-essential pkg-config libssl-dev protobuf-compiler
 
       - name: Build release binary
         uses: actions-rs/cargo@v1
