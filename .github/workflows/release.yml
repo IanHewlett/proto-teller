@@ -23,6 +23,11 @@ jobs:
   dist:
     name: Dist
     runs-on: ${{ matrix.os }}
+    container:
+      image: ghcr.io/ianhewlett/gha-base-alpine:v0.0.10
+      credentials:
+        username: username
+        password: ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
     strategy:
       fail-fast: false # don't fail other jobs if one fails
       matrix:
@@ -38,7 +43,7 @@ jobs:
             os: ubuntu-latest
             rust: stable
             target: aarch64-unknown-linux-gnu
-            cross: true
+            cross: false
 
 #          - build: x86_64-macos
 #            os: macos-latest
@@ -78,8 +83,8 @@ jobs:
         with:
           node-version: 18
 
-#      - name: Install Protoc
-#        uses: arduino/setup-protoc@v3
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
 
       - name: Install ${{ matrix.rust }} toolchain
         uses: actions-rs/toolchain@v1
