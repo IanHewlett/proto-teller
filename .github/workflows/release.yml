@@ -19,39 +19,9 @@ env:
   REPO_NAME: tellerops/teller
 
 jobs:
-#  test:
-#    name: Test Suite
-#    strategy:
-#      fail-fast: true
-#      matrix:
-#        os: [ubuntu-latest]
-#        rust: [stable]
-#    runs-on: ${{ matrix.os }}
-#    steps:
-#      - name: Checkout sources
-#        uses: actions/checkout@v4
-#
-#      - name: Install stable toolchain
-#        uses: actions-rs/toolchain@v1
-#        with:
-#          profile: minimal
-#          toolchain: ${{ matrix.rust }}
-#          override: true
-#
-#      - name: Install Protoc
-#        uses: arduino/setup-protoc@v3
-#
-#      - uses: Swatinem/rust-cache@v2
-#
-#      - name: Run cargo test
-#        uses: actions-rs/cargo@v1
-#        with:
-#          command: test
-#          args: --all-features --all
   dist:
     name: Dist
     runs-on: ${{ matrix.os }}
-    needs: test
     strategy:
       fail-fast: false # don't fail other jobs if one fails
       matrix:
